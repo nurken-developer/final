@@ -1,0 +1,143 @@
+create table place (
+hall_id decimal(12) primary key,
+flooor int not null,
+shelf int not null
+);
+
+create table VISITORS(
+	VIS_ID DECIMAL PRIMARY KEY,
+category_of_age varchar (64) not null,
+Lname varchar(64) not null,
+Iname varchar (64) not null,
+	place_id decimal references place(hall_id) 
+);
+
+create table books(
+	book_id decimal(12) not null primary key,
+	nomenclature_number int not null,
+	type_of_book varchar(64) not null,
+	number_of_pages int not null,
+	author varchar(64) not null,
+	visitors_id decimal(12) references VISITORS(VIS_ID)
+); 
+
+create table articles (
+article_id decimal (12) not null,
+	nomenclature_number int not null,
+	type_of_article varchar(64) not null,
+	number_of_pages int not null,
+	author varchar(64) not null,
+	visitors_id decimal(12) references VISITORS(VIS_ID)
+);
+
+create table journals (
+journal_id decimal (12) not null,
+	nomenclature_number int not null,
+	type_of_jornal varchar(64) not null,
+	number_of_pages int not null,
+	author varchar(64) not null,
+	visitors_id decimal(12) references VISITORS(VIS_ID)
+);
+
+create table fairy_tales (
+fairy_tales_id decimal (12) not null,
+	nomenclature_number int not null,
+	type_of_fairy_tales varchar(64) not null,
+	number_of_pages int not null,
+	author varchar(64) not null,
+	visitors_id decimal(12) references VISITORS(VIS_ID)
+);
+
+create table comics (
+comics_id decimal (12) not null,
+	nomenclature_number int not null,
+	type_of_comics varchar(64) not null,
+	number_of_pages int not null,
+	author varchar(64) not null,
+	visitors_id decimal(12) references VISITORS(VIS_ID)
+);
+insert into place (hall_id, flooor, shelf) values (1, 2, 8);
+insert into place (hall_id, flooor, shelf) values (2, 4, 4);
+insert into place (hall_id, flooor, shelf) values (3, 3, 1);
+insert into place (hall_id, flooor, shelf) values (4, 1, 10);
+insert into place (hall_id, flooor, shelf) values (5, 4, 1);
+insert into place (hall_id, flooor, shelf) values (6, 4, 2);
+insert into place (hall_id, flooor, shelf) values (7, 2, 8);
+insert into place (hall_id, flooor, shelf) values (8, 1, 10);
+insert into place (hall_id, flooor, shelf) values (9, 2, 1);
+insert into place (hall_id, flooor, shelf) values (10, 4, 9);
+
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (1, 'adult', 'Joycelin', 'Le Surf', 1);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (2, 'teenager', 'Hilarius', 'Guirau', 2);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (3, 'adult', 'Letizia', 'Hearons', 3);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (4, 'adult', 'Der', 'Koeppke', 4);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (5, 'teenager', 'Weidar', 'Scibsey', 5);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (6, 'junior', 'Angie', 'Loughton', 6);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (7, 'teenager', 'Madeleine', 'Watkiss', 7);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (8, 'adult', 'Patton', 'Denziloe', 8);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (9, 'junior', 'Ingram', 'Dorrity', 9);
+insert into VISITORS (VIS_ID, category_of_age, Lname, Iname, place_id) values (10, 'adult', 'Walther', 'Spawforth', 10);
+
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (1,'kazkhs', 250, 'classics', 702, 'Kelbee Seaton', 1);
+insert into books (book_id, name_of_book,nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (2, 'little women',150, 'novel', 403, 'Shelagh Hillatt', 2);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (3, 'genetlmens',322, 'classics', 596, 'Kit Gooke', 3);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (4, 'big cars',24, 'novel', 587, 'Constantina Richemont', 4);
+insert into books (book_id, name_of_book,nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (5,'my family', 278, 'classics', 492, 'Jessalin Ryman', 5);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (6, 'Plot Summary',391, 'horror', 608, 'Johnath Mishaw', 6);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (7, 'the outsiders',254, 'love novel', 551, 'Gradey Mapletoft', 7);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (8, 'computers',67, 'classics', 269, 'Louis Silversmid', 8);
+insert into books (book_id,name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (9,'IT technology', 41, 'classics', 245, 'Hallsy Phizaclea', 9);
+insert into books (book_id, name_of_book, nomenclature_number, type_of_book, number_of_pages, author, visitors_id) values (10,'University', 71, 'classics', 424, 'Jaquelin Manis', 10);
+
+insert into articles (article_id,name_of_article, nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (1,'science at MIT', 478, 'scientific', 122, 'Evin Bigadike', 1);
+insert into articles (article_id,name_of_article, nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (2,'sports news', 427, 'sports', 86, 'Deny Farebrother', 2);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (3,'football', 414, 'sports', 150, 'Lanny Despenser', 3);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (4,'chemistry in our life', 482, 'scientific', 128, 'Tucky Wharrier', 4);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (5,'kazminerals', 468, 'scientific', 77, 'Lisabeth Hacket', 5);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (6, 'covid',413, 'health', 80, 'Brendin Kures', 6);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (7,'math', 453, 'scientific', 131, 'Ellsworth Gloucester', 7);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (8,'Physics in life', 470, 'scientific', 121, 'Creigh Brougham', 8);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (9, 'voleyball',436, 'SPORTS', 150, 'Annice Clethro', 9);
+insert into articles (article_id, name_of_article,nomenclature_number, type_of_article, number_of_pages, author, visitors_id) values (10, 'basketball',454, 'SPORTS', 123, 'Merv Galilee', 10);
+
+insert into journals (journal_id, name_of_journal,nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (1,'Chaplin', 528, 'Comedy', 76, 'Gerard Prayer', 1);
+insert into journals (journal_id,name_of_journal,nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (2,'The Big Sick', 549, 'Sci-Fi', 60, 'Cherye Meatcher', 2);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (3,'Three', 500, 'Mystery', 75, 'Crosby Cranham', 3);
+insert into journals (journal_id, name_of_journal,nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (4, 'Mr.Macaroo',535, 'Thriller', 42, 'Corny Corstan', 4);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (5,'fly', 578, 'Romance', 71, 'Royall Stores', 5);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (6,'Booksmart', 513, 'Documentary', 43, 'Gabe Kimmings', 6);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (7,'Crazy Rich Asians', 591, 'Comedy', 52, 'Cyrillus Flament', 7);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (8,'Girls Trip', 527, 'Romance', 69, 'Ricoriki Leyband', 8);
+insert into journals (journal_id,name_of_journal, nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (9, 'dombyra',548, 'Drama', 52, 'Gweneth Gentile', 9);
+insert into journals (journal_id, name_of_journal,nomenclature_number, type_of_jornal, number_of_pages, author, visitors_id) values (10,'birds', 543, 'Sci-Fi', 74, 'Alla Elias', 10);
+
+
+insert into fairy_tales (fairy_tales_id, name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (1,'CHILDRENS', 665, 'Comedy', 259, 'Arni Le Count', 1);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (2, '3 horses',667, 'Drama', 219, 'Claus Duny', 2);
+insert into fairy_tales (fairy_tales_id, name_of_fairy_tale,nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (3,'big house', 634, 'Actionn', 275, 'Gail Prangle', 3);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (4,'happy town', 678, 'Animation', 218, 'Megen Sturley', 4);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale,nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (5,'family in Orlando', 616, 'Drama', 210, 'Bond Bucke', 5);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (6,'Aldarkose',684, 'Drama', 232, 'Faber Jeans', 6);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (7,'Baby', 695, 'Comedy', 212, 'Winfield Huckstepp', 7);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (8,'history of animals', 674, 'Drama', 268, 'Del Antalffy', 8);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (9,'elephant and bird', 621, 'Musical', 232, 'Mimi Sawter', 9);
+insert into fairy_tales (fairy_tales_id,name_of_fairy_tale, nomenclature_number, type_of_fairy_tales, number_of_pages, author, visitors_id) values (10, 'tasty apple',674, 'Documentary', 238, 'Fredrick Jewsbury', 10);
+
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (1,'Marvel', 712, 'Drama', 289, 'Sigfried Gibberd', 1);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (2,'DC', 770, 'Drama|Romance', 194, 'Byron Chuney', 2);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (3,'Dr.Strange', 790, 'Drama|Romance', 281, 'Jayme Pensom', 3);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (4,'Monsters', 715, 'Drama|War', 275, 'Petra Penquet', 4);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (5,'Dear friend', 702, 'Drama', 289, 'Byrom Arckoll', 5);
+insert into comics (comics_id, name_of_comics,nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (6,'Great Flip', 762, 'Animation|Fantasy|Horror|Sci-Fi', 246, 'Dorette Henstridge', 6);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (7,'Father man', 712, 'Comedy|Crime|Drama', 202, 'Chas Calafate', 7);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (8,'war2', 758, 'Action|War', 206, 'Giordano Mc Combe', 8);
+insert into comics (comics_id, name_of_comics,nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (9, 'Kairat Nurtas',727, 'Comedy|Mystery|Thriller', 263, 'Emmeline Childrens', 9);
+insert into comics (comics_id,name_of_comics, nomenclature_number, type_of_comics, number_of_pages, author, visitors_id) values (10,'scriptonit', 764, 'Comedy|Romance', 252, 'Florina Edinboro', 10);
+
+
+Select * 
+From place 
+Inner Join VISITORS
+On place.hall_id = VISITORS.place_id
+Inner join books
+On VISITORS.VIS_ID = books.visitors_id
